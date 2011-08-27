@@ -6,8 +6,6 @@ import lof_bindings as bindings
 import lof_actionparse as parser
 import lof_fs as fs
 
-import copy
-
 r = gfx.renderer()
 
 instate = game.input_state()
