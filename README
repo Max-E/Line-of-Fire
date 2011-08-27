@@ -1,0 +1,121 @@
+INTRODUCTION:
+
+Line-of-Fire ("LOF") is a simple two-player turn-based strategic boardgame
+written in Python. Complexity should be somewhere between Checkers and Chess.
+This distribution also includes a scenario editor. The code, documentation, 
+scenarios, and art assets are all made available under the MIT license, which
+can be found in COPYING.
+
+As of this writing (08/22/11) the code is still in a fairly rough state, which
+explains some of the shocking WTFs like the configuration "system."
+
+
+DEPENDENCIES:
+
+LOF requires Python 2.x (tested with Python 2.6.6) and Pygame (tested with
+Pygame 1.9.) It should be cross-platform, but has only been tested on 32-bit
+Linux Mint 10. 
+
+
+SETUP:
+
+None.
+
+
+RUNNING:
+
+Run lof_main.py to play the game. Run lof_editor.py to use the scenario 
+editor. You should run these from the command line, as the open and save
+functionality requires you to type scenario names in on STDIN.
+
+
+GAMEPLAY:
+
+The game is played on a square grid, with two players taking turns at the
+controls. One player has control of the red units, the other has the blue 
+ones. 
+
+There are two tile types, blank and goal tiles. Blank tiles are grey and may
+be occupied by units. Goal tiles are purple; their use is described below.
+
+There are two unit types, triangles and diamonds. (I'm aware that the correct
+term is "rhombus," but if the card deck can get it wrong, then I can get it
+wrong too.) Triangles can be aimed and moved, diamonds can only be moved. 
+Triangles project a "line of fire" for six tiles in whatever direction they
+are aimed. A triangle's line of fire can be blocked by units on the same team.
+When a triangle is moved or aimed, its line of fire may include a new set of 
+tiles. Any enemy units occupying those tiles will be taken out of play.
+
+Units can be moved up to six tiles at a time in any cardinal direction.  
+However, they may not move onto or through any tile which is already occupied
+by a unit, and they may not move onto or through any tile which is within the
+line of fire of an enemy triangle.
+
+A diamond can be moved onto, but not through a goal tile; it will then be
+taken out of play and its owner will gain one point. Triangles may not move
+onto or through goal tiles.
+
+During his turn, a player may do one of the following:
+- Change the type of one unit
+- Move and/or rotate one unit
+- Forfeit the turn
+
+The game ends when at least one player no longer has any units in play. At
+this time, the winner is whichever player has the most points. There is 
+currently no code to detect an end-of-game condition.
+
+
+CONTROLS:
+
+The most important controls are, by default:
+
+MOUSE1: Select one of your units
+        If another unit was selected, it will be deselected and any changes to
+        its type, position, and orientation will be cancelled.
+
+MOUSE1: Place selected unit 
+        If the unit's type was changed, it will be changed back.
+
+MOUSE2: Rotate selected unit
+        If the unit's type was changed, it will be changed back.
+
+MOUSE3: Change type of selected unit
+t:      Change selected unit to triangle
+d:      Change selected unit to diamond
+        If the the unit was moved or rotated, it will be moved back.
+
+ESC:    Deselect current unit 
+        The unit's position, orientation, and type will be reset.
+        
+ENTER:  Finalize current move
+        If you finalize a move without doing anything, you forfiet the turn.
+
+o:      Open a scenario
+        The default scenario is called "std" and will be opened automatically
+        when the game is started.
+
+s:      Save the current game as a new scenario
+        Once you have saved a scenario once, you can save it again without
+        having to type in a new name.
+
+q:      Quit the program
+
+When a unit is selected, all the tiles to which that unit can move are 
+highlighted. Click a tile to move it there. Right click directly on the unit
+to cycle through the cardinal directions, or right click anywhere to aim the 
+unit toward the cursor. Middle-click anywhere or use "t" or "d" to change 
+the unit's type. When you are satesfied with your current move, hit ENTER to
+end your turn.
+
+
+CONFIGURATION:
+
+The keyboard and mouse controls are currently customized by editing 
+lof_bindings.py. If you would like to reset the controls to their default 
+state, you are advised to keep a backup of this file; otherwise you'll need
+to re-download it.
+
+
+NETWORK PLAY:
+
+This has not yet been implemented.
