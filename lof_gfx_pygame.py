@@ -2,12 +2,14 @@ from lof_gfx import renderer as base_renderer
 from lof_fs import fs
 import lof_game as game
 
-import os
+import os, time
 import pygame
 from pygame.locals import *
 
 TILE_WIDTH = 16
 TILE_HEIGHT = TILE_WIDTH
+FRAMERATE = 60
+TIME_PER_FRAME = 1.0/float(FRAMERATE)
 
 
 rotation = {"up": 0, "left": 90, "down": 180, "right": 270}
@@ -52,6 +54,7 @@ class renderer (base_renderer):
 
     def _init_dpy (self):
         self.dpy = pygame.display.set_mode((640, 480))
+        self.last_refresh = time.clock()
     
     def _init_res (self):
         self.sprites = {"tiles": {}, 
@@ -134,7 +137,9 @@ class renderer (base_renderer):
             raise
     
     def refresh (self):
+        time.sleep (max(TIME_PER_FRAME-time.clock()+self.last_refresh, 0))
         pygame.display.update()
+        self.last_refresh = time.clock()
     
     def draw_cell (self, cell):
         pos = (cell.x*TILE_WIDTH, cell.y*TILE_HEIGHT)
