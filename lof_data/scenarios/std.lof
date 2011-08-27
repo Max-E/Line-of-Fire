@@ -1,0 +1,602 @@
+newfield
+piecelayer 0
+pos 18 10
+piecetype tile
+teamname all
+tiletype goal
+place
+pos 19 10
+place
+pos 20 10
+place
+pos 21 10
+place
+pos 18 11
+place
+pos 19 11
+place
+pos 20 11
+place
+pos 21 11
+place
+pos 18 12
+place
+pos 19 12
+place
+pos 20 12
+place
+pos 21 12
+place
+pos 18 13
+place
+pos 19 13
+place
+pos 20 13
+place
+pos 21 13
+place
+pos 18 14
+place
+pos 19 14
+place
+pos 20 14
+place
+pos 21 14
+place
+piecelayer 1
+piecelayer 2
+piecelayer 3
+pos 0 0
+piecetype unit
+teamname red
+direction right
+unittype triangle
+place
+pos 1 0
+place
+pos 0 1
+place
+pos 1 1
+place
+pos 0 2
+place
+pos 1 2
+place
+pos 0 3
+place
+pos 1 3
+place
+pos 0 4
+place
+pos 1 4
+place
+pos 0 5
+place
+pos 1 5
+place
+pos 2 6
+place
+pos 3 6
+place
+pos 2 7
+place
+pos 3 7
+place
+pos 2 8
+place
+pos 3 8
+place
+pos 2 9
+place
+pos 3 9
+place
+pos 36 15
+teamname blue
+direction left
+place
+pos 37 15
+place
+pos 36 16
+place
+pos 37 16
+place
+pos 36 17
+place
+pos 37 17
+place
+pos 36 18
+place
+pos 37 18
+place
+pos 38 19
+place
+pos 39 19
+place
+pos 38 20
+place
+pos 39 20
+place
+pos 38 21
+place
+pos 39 21
+place
+pos 38 22
+place
+pos 39 22
+place
+pos 38 23
+place
+pos 39 23
+place
+pos 38 24
+place
+pos 39 24
+place
+piecelayer 4
+piecelayer 5
+piecelayer 6
+piecelayer 7
+piecelayer 8
+pos 2 0
+piecetype beam
+teamname red
+direction right
+beamtype beam
+beamorg 1 0
+place
+pos 3 0
+place
+pos 4 0
+place
+pos 5 0
+place
+pos 6 0
+place
+pos 7 0
+beamtype beam_end
+place
+pos 2 1
+beamtype beam
+beamorg 1 1
+place
+pos 3 1
+place
+pos 4 1
+place
+pos 5 1
+place
+pos 6 1
+place
+pos 7 1
+beamtype beam_end
+place
+pos 2 2
+beamtype beam
+beamorg 1 2
+place
+pos 3 2
+place
+pos 4 2
+place
+pos 5 2
+place
+pos 6 2
+place
+pos 7 2
+beamtype beam_end
+place
+pos 2 3
+beamtype beam
+beamorg 1 3
+place
+pos 3 3
+place
+pos 4 3
+place
+pos 5 3
+place
+pos 6 3
+place
+pos 7 3
+beamtype beam_end
+place
+pos 2 4
+beamtype beam
+beamorg 1 4
+place
+pos 3 4
+place
+pos 4 4
+place
+pos 5 4
+place
+pos 6 4
+place
+pos 7 4
+beamtype beam_end
+place
+pos 2 5
+beamtype beam
+beamorg 1 5
+place
+pos 3 5
+place
+pos 4 5
+place
+pos 5 5
+place
+pos 6 5
+place
+pos 7 5
+beamtype beam_end
+place
+pos 4 6
+beamtype beam
+beamorg 3 6
+place
+pos 5 6
+place
+pos 6 6
+place
+pos 7 6
+place
+pos 8 6
+place
+pos 9 6
+beamtype beam_end
+place
+pos 4 7
+beamtype beam
+beamorg 3 7
+place
+pos 5 7
+place
+pos 6 7
+place
+pos 7 7
+place
+pos 8 7
+place
+pos 9 7
+beamtype beam_end
+place
+pos 4 8
+beamtype beam
+beamorg 3 8
+place
+pos 5 8
+place
+pos 6 8
+place
+pos 7 8
+place
+pos 8 8
+place
+pos 9 8
+beamtype beam_end
+place
+pos 4 9
+beamtype beam
+beamorg 3 9
+place
+pos 5 9
+place
+pos 6 9
+place
+pos 7 9
+place
+pos 8 9
+place
+pos 9 9
+beamtype beam_end
+place
+piecelayer 9
+pos 30 15
+teamname blue
+direction left
+beamorg 36 15
+place
+pos 31 15
+beamtype beam
+place
+pos 32 15
+place
+pos 33 15
+place
+pos 34 15
+place
+pos 35 15
+place
+pos 30 16
+beamtype beam_end
+beamorg 36 16
+place
+pos 31 16
+beamtype beam
+place
+pos 32 16
+place
+pos 33 16
+place
+pos 34 16
+place
+pos 35 16
+place
+pos 30 17
+beamtype beam_end
+beamorg 36 17
+place
+pos 31 17
+beamtype beam
+place
+pos 32 17
+place
+pos 33 17
+place
+pos 34 17
+place
+pos 35 17
+place
+pos 30 18
+beamtype beam_end
+beamorg 36 18
+place
+pos 31 18
+beamtype beam
+place
+pos 32 18
+place
+pos 33 18
+place
+pos 34 18
+place
+pos 35 18
+place
+pos 32 19
+beamtype beam_end
+beamorg 38 19
+place
+pos 33 19
+beamtype beam
+place
+pos 34 19
+place
+pos 35 19
+place
+pos 36 19
+place
+pos 37 19
+place
+pos 32 20
+beamtype beam_end
+beamorg 38 20
+place
+pos 33 20
+beamtype beam
+place
+pos 34 20
+place
+pos 35 20
+place
+pos 36 20
+place
+pos 37 20
+place
+pos 32 21
+beamtype beam_end
+beamorg 38 21
+place
+pos 33 21
+beamtype beam
+place
+pos 34 21
+place
+pos 35 21
+place
+pos 36 21
+place
+pos 37 21
+place
+pos 32 22
+beamtype beam_end
+beamorg 38 22
+place
+pos 33 22
+beamtype beam
+place
+pos 34 22
+place
+pos 35 22
+place
+pos 36 22
+place
+pos 37 22
+place
+pos 32 23
+beamtype beam_end
+beamorg 38 23
+place
+pos 33 23
+beamtype beam
+place
+pos 34 23
+place
+pos 35 23
+place
+pos 36 23
+place
+pos 37 23
+place
+pos 32 24
+beamtype beam_end
+beamorg 38 24
+place
+pos 33 24
+beamtype beam
+place
+pos 34 24
+place
+pos 35 24
+place
+pos 36 24
+place
+pos 37 24
+place
+piecelayer 10
+pos 2 0
+teamname red
+direction right
+beamorg 1 0
+place
+pos 3 0
+place
+pos 4 0
+place
+pos 5 0
+place
+pos 6 0
+place
+pos 7 0
+beamtype beam_end
+place
+pos 2 1
+beamtype beam
+beamorg 1 1
+place
+pos 3 1
+place
+pos 4 1
+place
+pos 5 1
+place
+pos 6 1
+place
+pos 7 1
+beamtype beam_end
+place
+pos 2 2
+beamtype beam
+beamorg 1 2
+place
+pos 3 2
+place
+pos 4 2
+place
+pos 4 6
+beamorg 3 6
+place
+pos 5 6
+place
+pos 6 6
+place
+pos 7 6
+place
+pos 8 6
+place
+pos 9 6
+beamtype beam_end
+place
+pos 4 7
+beamtype beam
+beamorg 3 7
+place
+pos 5 7
+place
+pos 6 7
+place
+pos 7 7
+place
+pos 8 7
+place
+pos 9 7
+beamtype beam_end
+place
+pos 4 8
+beamtype beam
+beamorg 3 8
+place
+pos 5 8
+place
+pos 6 8
+place
+pos 7 8
+place
+pos 8 8
+place
+pos 9 8
+beamtype beam_end
+place
+pos 35 17
+teamname blue
+direction left
+beamtype beam
+beamorg 36 17
+place
+pos 35 18
+beamorg 36 18
+place
+pos 35 19
+beamorg 38 19
+place
+pos 36 19
+place
+pos 37 19
+place
+pos 34 20
+beamorg 38 20
+place
+pos 35 20
+place
+pos 36 20
+place
+pos 37 20
+place
+pos 32 21
+beamtype beam_end
+beamorg 38 21
+place
+pos 33 21
+beamtype beam
+place
+pos 34 21
+place
+pos 35 21
+place
+pos 36 21
+place
+pos 37 21
+place
+pos 32 22
+beamtype beam_end
+beamorg 38 22
+place
+pos 33 22
+beamtype beam
+place
+pos 34 22
+place
+pos 35 22
+place
+pos 36 22
+place
+pos 37 22
+place
+pos 35 23
+beamorg 38 23
+place
+pos 36 23
+place
+pos 37 23
+place
+pos 37 24
+beamorg 38 24
+place
+direction right
+piecelayer 0
+bluescore 0.0
+piecetype tile
+pos 25.0 15.0
+teamname all
+redscore 0.0
+unittype triangle
+tiletype goal
