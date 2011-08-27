@@ -35,7 +35,7 @@ The game is played on a square grid, with two players taking turns at the
 controls. One player has control of the red units, the other has the blue 
 ones. 
 
-There are two tile types, blank and goal tiles. Blank tiles are grey and may
+There are two tile types, blank and goal tiles. Blank tiles are gray and may
 be occupied by units. Goal tiles are purple; their use is described below.
 
 There are two unit types, triangles and diamonds. (I'm aware that the correct
@@ -71,7 +71,7 @@ The most important controls are, by default:
 
 MOUSE1: Select one of your units
         If another unit was selected, it will be deselected and any changes to
-        its type, position, and orientation will be cancelled.
+        its type, position, and orientation will be canceled.
 
 MOUSE1: Place selected unit 
         If the unit's type was changed, it will be changed back.
@@ -88,7 +88,7 @@ ESC:    Deselect current unit
         The unit's position, orientation, and type will be reset.
         
 ENTER:  Finalize current move
-        If you finalize a move without doing anything, you forfiet the turn.
+        If you finalize a move without doing anything, you forfeit the turn.
 
 o:      Open a scenario
         The default scenario is called "std" and will be opened automatically
@@ -104,7 +104,7 @@ When a unit is selected, all the tiles to which that unit can move are
 highlighted. Click a tile to move it there. Right click directly on the unit
 to cycle through the cardinal directions, or right click anywhere to aim the 
 unit toward the cursor. Middle-click anywhere or use "t" or "d" to change 
-the unit's type. When you are satesfied with your current move, hit ENTER to
+the unit's type. When you are satisfied with your current move, hit ENTER to
 end your turn.
 
 
