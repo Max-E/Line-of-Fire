@@ -27,7 +27,7 @@ gamestate = {
                         "clearcursor"   ]
     }
 gamestate["fs"].add_resource_type ("scenario", "scenarios", "lof")
-for action in gamestate["defaults"]+["newfield"]:
+for action in gamestate["defaults"]+["filename std", "openmap"]:
     cmd, args = parser.parse_statement(action)
     game.run_cmd (gamestate, cmd, args)
 
