@@ -53,6 +53,7 @@ keys = {
 class renderer (base_renderer):
 
     def _init_dpy (self):
+        pygame.font.init()
         self.dpy = pygame.display.set_mode((640, 480))
         self.last_refresh = time.clock()
     
@@ -64,6 +65,7 @@ class renderer (base_renderer):
                         "shades": {}
                         }
         self.fs.add_resource_type ("sprite", "sprites", "png")
+        self.fs.add_resource_type ("font", "fonts", "ttf")
         for tilename in ["blank", "goal"]:
             resfile = self.fs.locate_resource ("sprite", tilename+"_tile")
             self.sprites["tiles"][tilename] = self.load_sprite (resfile)
@@ -85,6 +87,16 @@ class renderer (base_renderer):
         for shadename in ["red", "blue"]:
             resfile = self.fs.locate_resource ("sprite", shadename+"_shaded")
             self.sprites["shades"][shadename] = self.load_sprite (resfile)
+        menu_font_path = pygame.font.match_font ("liberation mono,courier new")
+        if menu_font_path == None:
+            for resname in ["LiberationMono-Regular", "cour"]:
+                respath = self.fs.locate_resource ("font", resname)
+                if os.path.exists (respath):
+                    menu_font_path = respath
+                    break
+        assert menu_font_path != None, "Unable to locate a usable font!"
+        self.font = pygame.font.Font (menu_font_path, (TILE_HEIGHT*3)/4)
+        self.button_cache = {}
     
     def load_sprite (self, filename):
         res = pygame.image.load (filename).convert_alpha()
@@ -136,6 +148,13 @@ class renderer (base_renderer):
             print "Malformed piece object!"
             raise
     
+    def get_button_resource (self, text):
+        if text in self.button_cache:
+            return self.button_cache[text]
+        surf = self.font.render (text, True, (255,255,255), (0,0,0))
+        self.button_cache[text] = (surf, surf.get_width())
+        return self.button_cache[text]
+    
     def refresh (self):
         time.sleep (max(TIME_PER_FRAME-time.clock()+self.last_refresh, 0))
         pygame.display.update()
@@ -149,14 +168,21 @@ class renderer (base_renderer):
             if piece != None:
                 spr = self.get_resource (piece)
                 self.dpy.blit (spr, pos)
+    
+    def draw_button (self, button, selected):
+        pos = (button.startx, (button.rownum+25)*TILE_HEIGHT)
+        if selected:
+            self.dpy.blit (button.selected, pos)
+        else:
+            self.dpy.blit (button.resource, pos)
 
     def update_inputstate (self, input_state):
         for event in pygame.event.get():
             evtype = event.type
             if evtype == pygame.MOUSEMOTION:
                 (mouse_x, mouse_y) = pygame.mouse.get_pos()
-                input_state.cursor_x = min(mouse_x/TILE_WIDTH, 39)
-                input_state.cursor_y = min(mouse_y/TILE_HEIGHT, 24)
+                input_state.cursor_x = mouse_x/TILE_WIDTH
+                input_state.cursor_y = mouse_y/TILE_HEIGHT
             elif evtype == pygame.KEYUP:
                 if event.key in keys:
                     input_state.buttons = [keys[event.key]] + input_state.buttons

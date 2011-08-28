@@ -31,6 +31,8 @@ for action in gamestate["defaults"]+["newfield"]:
     cmd, args = parser.parse_statement(action)
     game.run_cmd (gamestate, cmd, args)
 
+bindings.editor_add_buttons(gamestate)
+
 while True:
     r.update_inputstate (instate)
     actions = bindings.editor_transform_controls(instate, gamestate)

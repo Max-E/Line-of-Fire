@@ -98,7 +98,7 @@ class cell:
 
 
 class input_state:
-
+    
     def __init__ (self):
         self.cursor_x = 0
         self.cursor_y = 0
@@ -106,7 +106,7 @@ class input_state:
 
 
 class selection:
-
+    
     def __init__ (self, cur_cell):
         cur_unit = cur_cell.layers[LAYER_UNIT]
         assert cur_unit != None, \
@@ -118,6 +118,17 @@ class selection:
         self.cur_cell = cur_cell
         self.cur_unit = cur_unit
         self.origin_cell = cur_cell
+
+
+class button:
+    
+    def __init__ (self, resource, selected, actionlist, startx, width, rownum):
+        self.resource = resource
+        self.selected = selected
+        self.actionlist = actionlist
+        self.startx = startx
+        self.width = width
+        self.rownum = rownum
 
 
 currently_checking = {}

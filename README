@@ -2,19 +2,29 @@ INTRODUCTION:
 
 Line-of-Fire ("LOF") is a simple two-player turn-based strategic boardgame
 written in Python. Complexity should be somewhere between Checkers and Chess.
-This distribution also includes a scenario editor. The code, documentation, 
-scenarios, and art assets are all made available under the MIT license, which
-can be found in COPYING.
+This distribution also includes a scenario editor.
 
 As of this writing (08/22/11) the code is still in a fairly rough state, which
 explains some of the shocking WTFs like the configuration "system."
 
 
+LICENSE:
+
+The code, documentation, scenarios, and art assets are all made available
+under the MIT license, which can be found in COPYING.
+
 DEPENDENCIES:
 
-LOF requires Python 2.x (tested with Python 2.6.6) and Pygame (tested with
-Pygame 1.9.) It should be cross-platform, but has only been tested on 32-bit
-Linux Mint 10. 
+LOF requires Python 2.x (tested with Python 2.6.6,) Pygame (tested with Pygame
+1.9,) and SDL_ttf (tested with SDL_ttf 2.0.) It should be cross-platform, but 
+has only been tested on 32-bit Linux Mint 10. 
+
+LOF requires a fixed-width TrueType font be installed on your system. By
+default, it will look for "Liberation Mono" or "Courier New" in that order of
+preference. If neither of those fonts are installed, you may edit the source
+code to use a different one. It's also possible to obtain the TrueType files
+for these one of fonts and install them in lof_data/fonts, if you don't want
+to install them system-wide.
 
 
 SETUP:

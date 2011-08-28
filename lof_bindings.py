@@ -1,12 +1,35 @@
-# This file is what you edit to change your keyboard controls
-# Easy: just edit the lists of globals
-# Hard: create new types of controls, including sophisticated context-
-# sensitive ones
+# This file is what you edit to change your keyboard controls. You can also
+# add new menu items!
 
 import lof_game as game
 
 
+def add_buttons (gamestate, buttons):
+    r = gamestate["renderer"]
+    buttonrows = [[]]
+    rownum = 0
+    startx = 0
+    max_x = 640
+    for (text, actionlist) in buttons.items():
+        resource, width = r.get_button_resource ("  "+text+"  ")
+        selected_version, selected_version_width = \
+            r.get_button_resource (" ["+text+"] ")
+        width = max (width, selected_version_width)
+        if startx+width >= max_x:
+            rownum += 1
+            startx = 0
+            buttonrows += [[]]
+        cur_button = game.button (
+                resource, selected_version, actionlist, startx, width, rownum
+            )
+        buttonrows[rownum] += [cur_button]
+        r.draw_button (cur_button, False)
+        startx += width
+    gamestate["buttons"] = buttonrows
+
+
 # For the map editor
+editor_menuselect = ["MOUSE1"]
 editor_place = ["MOUSE1"]
 editor_delete = ["MOUSE2"]
 editor_redteam = ["r"]
@@ -23,9 +46,42 @@ editor_faceleft = ["LEFTARROW"]
 editor_facedown = ["DOWNARROW"]
 editor_faceright = ["RIGHTARROW"]
 
+editor_buttons = {
+#       button text:        actionlist
+        "red triangle":     ["teamname red", "piecetype unit", "unittype triangle", "autolayer"],
+        "blue triangle":    ["teamname blue", "piecetype unit", "unittype triangle", "autolayer"],
+        "red diamond":      ["teamname red", "piecetype unit", "unittype diamond", "autolayer"],
+        "blue diamond":     ["teamname blue", "piecetype unit", "unittype diamond", "autolayer"],
+        "goal tile":        ["teamname all", "piecetype tile", "tiletype goal", "autolayer"],
+        "save":             ["savemap"],
+        "open":             ["openmap"],
+        "new":              ["clearfilename", "newfield"],
+        "quit":             ["quit"]
+}
+
+def editor_add_buttons (gamestate):
+    add_buttons (gamestate, editor_buttons)
+
 def editor_transform_controls (instate, gamestate):
-    actions = ["pos "+str(instate.cursor_x)+" "+str(instate.cursor_y)]
+    actions = [ "pos "+
+                str(min(instate.cursor_x, 39))+" "+
+                str(min(instate.cursor_y, 24)) ]
+    
+    if instate.cursor_y > 24:
+        x, y = instate.cursor_x*16, min(instate.cursor_y-25, len(gamestate["buttons"])-1)
+        buttonrow = gamestate["buttons"][y]
+        for button in buttonrow:
+            if x < button.startx:
+                continue
+            gamestate["selected_button"] = button
+    elif "selected_button" in gamestate:
+        del gamestate["selected_button"]
+    
     for button in instate.buttons:
+        if button in editor_menuselect and "selected_button" in gamestate:
+            actions += gamestate["selected_button"].actionlist
+            continue
+        
         if button in editor_place:
             actions += ["gplace"]
         elif button in editor_delete:
@@ -69,6 +125,7 @@ def editor_transform_controls (instate, gamestate):
 
 
 #For the game
+game_menuselect = ["MOUSE1"]
 game_select = ["MOUSE1"]
 game_deselect = ["ESC"]
 game_place = ["MOUSE1"]
@@ -83,12 +140,39 @@ game_cycleunit = ["MOUSE3"]
 game_finalizemove = ["ENTER"]
 game_saveprogress = ["s"]
 game_openprogress = ["o"]
-game_newgame = ["n"]
 game_quit = ["q", "EXIT"]
 
+game_buttons = {
+#       button text:    actionlist
+        "finalize":     ["gfinalize"],
+        "save":         ["savemap"],
+        "open":         ["openmap"],
+        "quit":         ["quit"]
+}
+
+def game_add_buttons (gamestate):
+    add_buttons (gamestate, game_buttons)
+
 def game_transform_controls (instate, gamestate):
-    actions = ["pos "+str(instate.cursor_x)+" "+str(instate.cursor_y)]
+    actions = [ "pos "+
+                str(min(instate.cursor_x, 39))+" "+
+                str(min(instate.cursor_y, 24)) ]
+    
+    if instate.cursor_y > 24:
+        x, y = instate.cursor_x*16, min(instate.cursor_y-25, len(gamestate["buttons"])-1)
+        buttonrow = gamestate["buttons"][y]
+        for button in buttonrow:
+            if x < button.startx:
+                continue
+            gamestate["selected_button"] = button
+    elif "selected_button" in gamestate:
+        del gamestate["selected_button"]
+    
     for button in instate.buttons:
+        if button in game_menuselect and "selected_button" in gamestate:
+            actions += gamestate["selected_button"].actionlist
+            continue
+        
         if button in game_select:
             cur_cell = game.cell_from_gamestate (gamestate)
             if cur_cell.layers[game.LAYER_UNIT] != None:    
@@ -115,10 +199,6 @@ def game_transform_controls (instate, gamestate):
             actions += ["savemap"]
         elif button in game_openprogress:
             actions += ["openmap"]
-        elif button in game_newgame:
-            if "filename" in gamestate:
-                del gamestate["filename"]
-            actions += ["newfield"]
         elif button in game_quit:
             actions += ["quit"]
         elif button in game_faceup:

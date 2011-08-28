@@ -233,6 +233,9 @@ def cmd_gamedirection (gamestate, name, args):
 def cmd_drawcursor (gamestate, name, args):
     assert len(args) == 0, "Drawcursor does not take arguments!"
     r = gamestate["renderer"]
+    if "selected_button" in gamestate:
+        r.draw_button (gamestate["selected_button"], True)
+        return
     cur_cell = cell_from_gamestate (gamestate)
     cur_cell.layers[LAYER_CURSOR] = cursor ("std")
     if gamestate["editor"]:
@@ -250,6 +253,9 @@ def cmd_drawcursor (gamestate, name, args):
 def cmd_clearcursor (gamestate, name, args):
     assert len(args) == 0, "Clearcursor does not take arguments!"
     r = gamestate["renderer"]
+    if "selected_button" in gamestate:
+        r.draw_button (gamestate["selected_button"], False)
+        return
     cur_cell = cell_from_gamestate (gamestate)
     cur_cell.layers[LAYER_CURSOR] = None
     if gamestate["editor"]:
@@ -408,6 +414,11 @@ def cmd_transformunit (gamestate, name, args):
         r.draw_cell (bcell)
     r.draw_cell (cur_selection.cur_cell)
 
+def cmd_clear_filename (gamestate, name, args):
+    assert len(args) == 0, "Clearfilename does not take arguments!"
+    if "filename" in gamestate:
+        del gamestate["filename"]
+
 
 # Specialized formatters
 
@@ -491,7 +502,8 @@ handlers = {
     "select":           cmd_select,
     "deselect":         cmd_deselect,
     "gfinalize":        cmd_finalizemove,
-    "gtransform":       cmd_transformunit
+    "gtransform":       cmd_transformunit,
+    "clearfilename":    cmd_clear_filename
 }
 
 
@@ -515,6 +527,8 @@ formatters = {
     "eachframe":        cmd_fmt_ignore,
     "selection":        cmd_fmt_ignore,
     "fs":               cmd_fmt_ignore,
+    "buttons":          cmd_fmt_ignore,
+    "selected_button":  cmd_fmt_ignore,
     
     "field":            cmd_fmt_field
 }

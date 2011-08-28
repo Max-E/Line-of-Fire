@@ -29,6 +29,8 @@ for action in gamestate["defaults"]+["filename std", "openmap"]:
     cmd, args = parser.parse_statement(action)
     game.run_cmd (gamestate, cmd, args)
 
+bindings.game_add_buttons(gamestate)
+
 while True:
     r.update_inputstate (instate)
     actions = bindings.game_transform_controls(instate, gamestate)
