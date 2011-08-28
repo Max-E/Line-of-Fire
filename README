@@ -23,7 +23,7 @@ LOF requires a fixed-width TrueType font be installed on your system. By
 default, it will look for "Liberation Mono" or "Courier New" in that order of
 preference. If neither of those fonts are installed, you may edit the source
 code to use a different one. It's also possible to obtain the TrueType files
-for these one of fonts and install them in lof_data/fonts, if you don't want
+for one of these fonts and install them in lof_data/fonts, if you don't want
 to install them system-wide.
 
 
