@@ -164,13 +164,18 @@ def cmd_open (gamestate, name, args):
         assert False, "Too many arguments to open!"
     elif "filename" not in gamestate:
         gamestate["filename"] = raw_input ("Please enter a scenario name: ")
+    if "selected_button" in gamestate:
+        gamestate["renderer"].draw_button (
+                gamestate["selected_button"], False
+            )
+        del gamestate["selected_button"]
     infile = open (gamestate["fs"].locate_resource("scenario", gamestate["filename"]), "rb")
     for action in parser.parse_file (infile):
         run_cmd (gamestate, action[0], action[1])
     for action in gamestate["defaults"]:
         cmd, args = parser.parse_statement (action)
         run_cmd (gamestate, cmd, args)
-    if not gamestate["editor"]:
+    if not gamestate["editor"] and "filename" in gamestate:
         del gamestate["filename"]
 
 def cmd_newfield (gamestate, name, args):
@@ -351,10 +356,10 @@ def cmd_finalizemove (gamestate, name, args):
     assert len(args) == 0, "Deselect does not take arguments!"
     if "selection" not in gamestate:
         if gamestate["teamname"] == "red":
-            print "red forfeits"
+            print "* red forfeits"
             gamestate["teamname"] = "blue"
         else:
-            print "blue forfeits"
+            print "* blue forfeits"
             gamestate["teamname"] = "red"
         return
     r = gamestate["renderer"]
@@ -418,6 +423,15 @@ def cmd_clear_filename (gamestate, name, args):
     assert len(args) == 0, "Clearfilename does not take arguments!"
     if "filename" in gamestate:
         del gamestate["filename"]
+
+def cmd_echo (gamestate, name, args):
+    print ' '.join(args)
+
+def cmd_delay (gamestate, name, args):
+    assert len(args) == 1, "Delay takes exactly one argument!"
+    delayamt = int(float(args[0])*60.0)
+    for i in range (delayamt):
+        gamestate["renderer"].refresh()
 
 
 # Specialized formatters
@@ -503,7 +517,9 @@ handlers = {
     "deselect":         cmd_deselect,
     "gfinalize":        cmd_finalizemove,
     "gtransform":       cmd_transformunit,
-    "clearfilename":    cmd_clear_filename
+    "clearfilename":    cmd_clear_filename,
+    "echo":             cmd_echo,
+    "delay":            cmd_delay
 }
 
 

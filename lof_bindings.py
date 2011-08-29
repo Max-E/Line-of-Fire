@@ -147,7 +147,8 @@ game_buttons = {
         "finalize":     ["gfinalize"],
         "save":         ["savemap"],
         "open":         ["openmap"],
-        "quit":         ["quit"]
+        "quit":         ["quit"],
+        "tutorial":     ["filename tutorial", "openmap"]
 }
 
 def game_add_buttons (gamestate):

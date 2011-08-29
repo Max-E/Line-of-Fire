@@ -1,0 +1,571 @@
+filename std
+openmap
+echo Welcome to the Line-of-Fire tutorial!
+delay 1.5
+echo This will show you the basics of of LoF gameplay.
+delay 1.5
+echo NOTE: this tutorial is not yet interactive, so your user input will be ignored
+echo until it is over.
+delay 2.5
+echo Each player controls one team.
+delay 1.5
+echo There are two teams.
+delay 1
+echo Red team:
+delay 0.5
+clearcursor
+pos 1 0
+drawcursor
+delay 0.075
+clearcursor
+pos 1 1
+drawcursor
+delay 0.075
+clearcursor
+pos 1 2
+drawcursor
+delay 0.075 
+clearcursor
+pos 1 3
+drawcursor
+delay 0.075
+clearcursor
+pos 1 4
+drawcursor
+delay 0.075
+clearcursor
+pos 1 5
+drawcursor
+delay 0.075
+clearcursor
+pos 2 6
+drawcursor
+delay 0.075
+clearcursor
+pos 2 7
+drawcursor
+delay 0.075
+clearcursor
+pos 2 8
+drawcursor
+delay 0.075
+clearcursor
+pos 2 9
+drawcursor
+delay 0.075
+clearcursor
+delay 0.5
+echo And blue team:
+delay 0.5
+pos 38 24
+drawcursor
+delay 0.075
+clearcursor
+pos 38 23
+drawcursor
+delay 0.075
+clearcursor
+pos 38 22
+drawcursor
+delay 0.075
+clearcursor
+pos 38 21
+drawcursor
+delay 0.075
+clearcursor
+pos 38 20
+drawcursor
+delay 0.075
+clearcursor
+pos 38 19
+drawcursor
+delay 0.075
+clearcursor
+pos 37 18
+drawcursor
+delay 0.075
+clearcursor
+pos 37 17
+drawcursor
+delay 0.075
+clearcursor
+pos 37 16
+drawcursor
+delay 0.075
+clearcursor
+pos 37 15
+drawcursor
+delay 0.075
+clearcursor
+delay 1.0
+echo The purple tiles are goal tiles:
+pos 18 10
+drawcursor
+delay 0.075
+clearcursor
+pos 19 10
+drawcursor
+delay 0.075
+clearcursor
+pos 20 10
+drawcursor
+delay 0.075
+clearcursor
+pos 21 10
+drawcursor
+delay 0.075
+clearcursor
+pos 20 11
+drawcursor
+delay 0.075
+clearcursor
+pos 19 12
+drawcursor
+delay 0.075
+clearcursor
+pos 18 13
+drawcursor
+delay 0.075
+clearcursor
+pos 19 14
+drawcursor
+delay 0.075
+clearcursor
+delay 1
+echo Players take turns at the controls. The red player goes first.
+delay 2
+echo Select one of your UNITS by mousing over it...
+delay 0.5
+pos 5 6
+drawcursor
+delay 0.125
+clearcursor
+pos 4 6
+drawcursor
+delay 0.125
+clearcursor
+pos 3 6
+drawcursor
+delay 0.5
+echo ...and clicking MOUSE1 on it.
+select
+delay 1.5
+echo Notice how some tiles are now highlighted?
+delay 1.5
+echo The highlighted tiles denote where you can move the currently selected unit.
+delay 2.5
+echo You may move the unit to a highlighted tile by clicking on it.
+delay 0.5
+clearcursor
+pos 3 5
+drawcursor
+delay 0.125
+clearcursor
+pos 3 4
+drawcursor
+delay 0.125
+clearcursor
+pos 3 3
+drawcursor
+delay 0.125
+clearcursor
+pos 3 2
+drawcursor
+delay 0.25
+gplace
+delay 1.5
+echo You may rotate the unit by right clicking directly on it:
+delay 1
+gdirection auto
+delay 0.5
+gdirection auto
+delay 0.5
+echo You may also aim the unit toward a tile by right clicking on it:
+delay 0.5
+clearcursor
+pos 4 2
+drawcursor
+delay 0.125
+clearcursor
+pos 5 2
+drawcursor
+delay 0.125
+clearcursor
+pos 6 2
+drawcursor
+delay 0.125
+clearcursor
+pos 7 2
+drawcursor
+delay 0.125
+clearcursor
+pos 8 2
+drawcursor
+delay 0.5
+gdirection auto
+delay 2
+echo You may continue to move and rotate a unit until you are satisfied.
+delay 0.5
+clearcursor
+pos 4 6
+drawcursor
+delay 0.125
+clearcursor
+pos 5 6
+drawcursor
+delay 0.125
+clearcursor
+pos 6 6
+drawcursor
+delay 0.125
+clearcursor
+pos 7 6
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+gdirection auto
+delay 2
+echo You end your turn by hitting ENTER or clicking "finalize."
+delay 1.5
+gfinalize
+delay 0.25
+clearcursor
+echo It is now the blue team's turn.
+delay 1.5
+pos 33 15
+drawcursor
+delay 0.125
+clearcursor
+pos 34 15
+drawcursor
+delay 0.125
+clearcursor
+pos 35 15
+drawcursor
+delay 0.125
+clearcursor
+pos 36 15
+drawcursor
+delay 0.5
+select
+delay 0.5
+clearcursor
+pos 36 14
+drawcursor
+delay 0.125
+clearcursor
+pos 36 13
+drawcursor
+delay 0.125
+clearcursor
+pos 36 12
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+clearcursor
+pos 35 13
+drawcursor
+delay 0.125
+clearcursor
+pos 34 14
+drawcursor
+delay 0.125
+clearcursor
+pos 33 15
+drawcursor
+delay 0.125
+clearcursor
+pos 32 15
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+gdirection auto
+delay 0.5 
+echo If you select another unit before you finalize the turn, your current unit will be reset.
+delay 2.5
+clearcursor
+pos 33 16
+drawcursor
+delay 0.125
+clearcursor
+pos 34 17
+drawcursor
+delay 0.125
+clearcursor
+pos 35 18
+drawcursor
+delay 0.125
+clearcursor
+pos 36 19
+drawcursor
+delay 0.125
+clearcursor
+pos 37 20
+drawcursor
+delay 0.125
+clearcursor
+pos 38 21
+drawcursor
+delay 0.5
+deselect
+select
+delay 1.5
+echo You may also deselect your current unit by hitting ESC.
+delay 2
+deselect
+delay 1
+echo If you end your turn without doing anything, you forfeit the turn.
+delay 1
+gfinalize
+delay 2
+echo Let's go ahead and skip forward in the game a little...
+delay 1
+clearcursor
+filename std_inprogress_example
+openmap
+delay 1
+echo You may have noticed that each triangle projects a beam in front of it.
+delay 2
+echo This beam is called a "line of fire."
+delay 2
+echo The line of fire serves two purposes.
+delay 1.5
+echo First, it can block enemy units:
+pos 28 5
+drawcursor
+delay 0.125
+clearcursor
+pos 28 6
+drawcursor
+delay 0.125
+clearcursor
+pos 28 7
+drawcursor 
+delay 0.5
+select
+delay 0.5
+clearcursor
+pos 28 8
+drawcursor
+delay 0.125
+clearcursor
+pos 28 9
+drawcursor
+delay 0.5
+gplace
+delay 1
+echo Second, it can destroy enemy units:
+clearcursor
+pos 29 8
+drawcursor
+delay 0.125
+clearcursor
+pos 30 7
+drawcursor
+delay 0.5
+gplace
+delay 1
+echo This blue unit will be destroyed when the turn is finalized.
+delay 2
+gfinalize
+delay 1
+echo Lines of fire form the basis of both defense and offense.
+delay 2
+clearcursor
+pos 24 11
+drawcursor
+delay 0.125
+clearcursor
+pos 24 12
+drawcursor
+delay 0.125
+clearcursor
+pos 24 13
+drawcursor
+delay 0.5
+select
+delay 0.5
+clearcursor
+pos 24 12
+drawcursor
+delay 0.075
+clearcursor
+pos 24 11
+drawcursor
+delay 0.075
+clearcursor
+pos 24 10
+drawcursor
+delay 0.075
+clearcursor
+pos 24 9
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+gdirection auto
+delay 0.5
+gfinalize
+delay 2
+echo So far you have seen just one unit type, but in fact there are two.
+delay 2
+clearcursor
+pos 3 0
+drawcursor
+delay 0.125
+clearcursor
+pos 2 0
+drawcursor
+delay 0.125
+clearcursor
+pos 1 0
+drawcursor
+delay 0.5
+select
+delay 0.5
+echo You may toggle the selected unit's type by middle-clicking anywhere.
+delay 2
+clearcursor
+pos 8 9
+drawcursor
+delay 0.125
+clearcursor
+pos 9 10
+drawcursor
+delay 0.125
+clearcursor
+pos 11 12
+drawcursor
+delay 0.5
+gtransform next
+delay 1
+echo This unit has changed from a TRIANGLE to a DIAMOND.
+clearcursor
+delay 2
+echo You notice that diamonds to not have lines of fire.
+delay 1.5
+echo They cannot be used to attack enemy units.
+delay 2
+echo You cannot move a unit and change its type in the same turn.
+delay 2
+echo If you attempt to move this unit now:
+delay 1
+clearcursor
+pos 2 0
+drawcursor
+delay 0.125
+clearcursor
+pos 3 0
+drawcursor
+delay 0.125
+clearcursor
+pos 4 0
+drawcursor
+gplace
+delay 0.5
+echo It will turn back into a triangle.
+delay 1.5
+echo If you attempt to change it into a diamond now:
+delay 1
+gtransform next
+delay 1
+echo Its position is reset.
+delay 2
+echo If you select another unit:
+clearcursor
+pos 12 13
+drawcursor
+delay 0.125
+clearcursor
+pos 13 13
+drawcursor
+delay 0.125
+clearcursor
+pos 14 13
+drawcursor
+delay 0.5
+deselect
+select
+delay 0.5
+echo Then changes to the type of the previous unit are canceled.
+delay 2
+echo So what are the goal tiles for?
+delay 2
+echo You notice that it is impossible for a triangle to enter a goal tile:
+delay 2
+clearcursor
+pos 15 13
+drawcursor
+delay 0.125
+clearcursor
+pos 16 13
+drawcursor
+delay 0.125
+clearcursor
+pos 17 13
+drawcursor
+delay 0.125
+clearcursor
+pos 18 13
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+echo But diamonds can!
+delay 1
+gtransform next
+delay 0.5
+gfinalize
+delay 0.5
+gfinalize
+delay 0.5
+clearcursor
+pos 17 13
+drawcursor
+delay 0.125
+clearcursor
+pos 16 13
+drawcursor
+delay 0.125
+clearcursor
+pos 15 13
+drawcursor
+delay 0.125
+clearcursor
+pos 14 13
+drawcursor
+delay 0.5
+select
+delay 0.5
+clearcursor
+pos 15 13
+drawcursor
+delay 0.125
+clearcursor
+pos 16 13
+drawcursor
+delay 0.125
+clearcursor
+pos 17 13
+drawcursor
+delay 0.125
+clearcursor
+pos 18 13
+drawcursor
+delay 0.5
+gplace
+delay 0.5
+gfinalize
+delay 1
+echo The diamond has disappeared, and the red team has been awarded a point.
+delay 3
+echo The game ends when one player has lost all of his units.
+delay 2
+echo When the game ends, whoever has the most points will win.
+delay 2
+echo And that's all you need to know! Why not get a friend and finish off this
+echo scenario?
+clearcursor
